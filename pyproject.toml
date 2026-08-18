@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "paoding-skill"
+version = "0.1.0"
+description = "Reverse-distill finished AI artifacts into evidence-backed equivalent production recipes and executable skills."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "PyYAML>=6.0",
+  "jsonschema>=4.22",
+]
+
+[project.scripts]
+paoding = "paoding.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+paoding = ["schemas/*.json"]

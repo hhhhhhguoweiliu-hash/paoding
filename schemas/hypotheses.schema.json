@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Paoding Hypotheses",
+  "type": "object",
+  "required": ["version", "items"],
+  "properties": {
+    "version": {"type": "string"},
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "claim", "level", "evidence_ids", "attribution_confidence", "reproduction_confidence", "reproduction_impact", "alternatives", "falsification_test"],
+        "properties": {
+          "id": {"type": "string"},
+          "claim": {"type": "string"},
+          "level": {"enum": ["S", "H", "U"]},
+          "evidence_ids": {"type": "array", "items": {"type": "string"}},
+          "attribution_confidence": {"type": "number", "minimum": 0, "maximum": 1},
+          "reproduction_confidence": {"type": "number", "minimum": 0, "maximum": 1},
+          "reproduction_impact": {"type": "number", "minimum": 0, "maximum": 1},
+          "alternatives": {"type": "array", "items": {"type": "string"}},
+          "falsification_test": {"type": "string"},
+          "model_candidates": {"type": "array", "items": {"type": "string"}}
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": false
+}

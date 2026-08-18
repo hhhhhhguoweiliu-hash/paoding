@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Paoding Shot Manifest",
+  "type": "object",
+  "required": ["version", "sampling", "frames"],
+  "properties": {
+    "version": {"type": "string"},
+    "sampling": {"type": "object"},
+    "frames": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "timestamp_sec", "path"],
+        "properties": {
+          "id": {"type": "string"},
+          "timestamp_sec": {"type": "number", "minimum": 0},
+          "path": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

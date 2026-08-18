@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Paoding Evidence Ledger",
+  "type": "object",
+  "required": ["version", "items"],
+  "properties": {
+    "version": {"type": "string"},
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "kind", "level", "description"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "kind": {"type": "string"},
+          "level": {"enum": ["O", "U"]},
+          "description": {"type": "string"},
+          "timestamp_sec": {"type": ["number", "null"], "minimum": 0},
+          "source": {"type": ["string", "null"]},
+          "details": {"type": "object"}
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": false
+}

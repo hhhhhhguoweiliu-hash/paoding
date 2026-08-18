@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Paoding Workflow",
+  "type": "object",
+  "required": ["version", "capability_recipe", "tool_adapters", "reproduction"],
+  "properties": {
+    "version": {"type": "string"},
+    "capability_recipe": {
+      "type": "object",
+      "required": ["nodes", "edges"],
+      "properties": {
+        "nodes": {"type": "array", "items": {"type": "object", "required": ["id", "capability"]}},
+        "edges": {"type": "array", "items": {"type": "object", "required": ["from", "to"]}}
+      },
+      "additionalProperties": true
+    },
+    "tool_adapters": {"type": "array", "items": {"type": "object"}},
+    "reproduction": {
+      "type": "object",
+      "required": ["status"],
+      "properties": {"status": {"enum": ["unverified", "attempted", "verified"]}},
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}
